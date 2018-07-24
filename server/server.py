@@ -1,7 +1,12 @@
 from flask import Flask, cli, url_for, send_file
 import sys
 
-app = Flask(__name__, static_url_path='/users/data/workspaces')
+def create_app(stuff):
+    print('creating app', stuff)
+    app = Flask(__name__, static_url_path='/users/data/workspaces')
+    return app
+
+app = create_app('buffer')
 
 @app.route('/')
 def index():
